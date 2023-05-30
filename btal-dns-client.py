@@ -64,12 +64,13 @@ header = struct.pack(
 )
 qtype = 1
 parts = hostname.split(".")
-print(parts)
+# print(parts)
 encoded_parts = [struct.pack("!B", len(part)) + part.encode() for part in parts]
-print(encoded_parts)
+# print(encoded_parts)
 encoded_domain = b"".join(encoded_parts) + b"\x00"
-print(encoded_domain)
+# print(encoded_domain)
 
 
 question = encoded_domain + struct.pack("!HH", qtype, 1)
-print(question)
+dns_message = header + question
+print(dns_message)
