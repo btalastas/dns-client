@@ -36,6 +36,22 @@ def create_dns_query(hostname):
     return dns_message
 
 
+def send_dns_query_message(server, port, query):
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    try:
+        udp_sock.sendto(query, (server, port))
+
+        data, address = udp_sock.recvfrom(2048)
+        process_dns_response(data)
+    finally:
+        udp_sock.close()
+
+
+def process_dns_response(response):
+    print(response)
+
+
 # Error checking for command line arguments
 
 if len(sys.argv) == 1:
