@@ -5,7 +5,7 @@ import random
 import binascii
 
 
-def dns_query(hostname):
+def create_dns_query(hostname):
     # Header
     header_row_0 = random.randint(0, 65535)
     header_row_1 = 0x0100
@@ -28,6 +28,12 @@ def dns_query(hostname):
     parts = hostname.split(".")
     encoded_parts = [struct.pack("!B", len(parts)) + part.encode() for part in parts]
     encoded_domain = b"".join(encoded_parts) + b"\x00"
+
+    # Combining header and question to form DNS query message.
+    question = encoded_domain + struct.pack("!HH", qtype, 1)
+    dns_message = header + question
+
+    return dns_message
 
 
 # Error checking for command line arguments
@@ -64,8 +70,13 @@ header = struct.pack(
 )
 qtype = 1
 parts = hostname.split(".")
-# print(parts)
+hex_parts = []
+for part in parts:
+    hex_parts.append("".join(hex(ord(word))[2:] for word in part))
+print(hex_parts)
+
 encoded_parts = [struct.pack("!B", len(part)) + part.encode() for part in parts]
+# encoded_parts = [struct.pack("!B", len(part)) + part.encode() for part in hex_parts]
 # print(encoded_parts)
 encoded_domain = b"".join(encoded_parts) + b"\x00"
 # print(encoded_domain)
