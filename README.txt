@@ -2,7 +2,10 @@ Before you run-
 Install the python library "dnslib" by running the command in your terminal: pip install dnslib
 
 Running DNS Client-
-To run the program issue the following command: 
+To run the program issue the following command:
+    $ ./btal=dns-client.py <hostname>
+
+    If that does not work...run the following command:
     $ python3 btal-dns-client.py <hostname>
 
 Some examples of how to run the program are:
