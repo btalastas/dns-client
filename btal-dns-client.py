@@ -77,7 +77,7 @@ def send_dns_query_message(server, port, query):
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     attempts = 0
     print("Contacting DNS Server..")
-    print("Sending DNS query")
+    print("Sending DNS query..")
     while attempts < 3:
         try:
             udp_sock.sendto(query, (server, port))
