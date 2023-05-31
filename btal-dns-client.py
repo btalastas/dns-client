@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import socket
 import sys
 import struct
@@ -73,16 +75,23 @@ def send_dns_query_message(server, port, query):
         query (bytes): DNS query message created.
     """
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    attempts = 0
+    print("Contacting DNS Server..")
+    print("Sending DNS query")
+    while attempts < 3:
+        try:
+            udp_sock.sendto(query, (server, port))
+            udp_sock.settimeout(5)
+            data = udp_sock.recv(1024)
+            print(f"DNS response received (attempt {attempts+1} out of 3)")
+            process_dns_response(query, data)
+            break
+        except socket.timeout:
+            attempts += 1
 
-    try:
-        print("Contacting DNS Server..")
-        udp_sock.sendto(query, (server, port))
-        print("Sending DNS query")
-        udp_sock.settimeout(5)
-        data = udp_sock.recv(1024)
-        process_dns_response(query, data)
-    finally:
-        udp_sock.close()
+    if attempts == 3:
+        print("Error: Attempted to send DNS query 3 times and received no response.")
+    udp_sock.close()
 
 
 def process_dns_response(query, response):

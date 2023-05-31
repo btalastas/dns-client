@@ -1,0 +1,60 @@
+Preparing DNS query..
+Contacting DNS Server..
+Sending DNS query
+DNS response received (attempt 1 out of 3)
+Processing DNS response..
+----------------------------------------------------------------------------
+header.ID = 25155
+header.QR = 1
+header.OPCODE = 0
+header.RD = 1
+header.QDCOUNT = 1
+question.QNAME = gmu.edu.
+question.QTYPE = 1
+question.QCLASS = 1
+answer.NAME = gmu.edu.
+answer.TYPE = 1
+answer.CLASS = 1
+answer.TTL = 3600
+answer.RDATA = 129.174.134.28
+----------------------------------------------------------------------------
+Preparing DNS query..
+Contacting DNS Server..
+Sending DNS query
+DNS response received (attempt 1 out of 3)
+Processing DNS response..
+----------------------------------------------------------------------------
+header.ID = 44551
+header.QR = 1
+header.OPCODE = 0
+header.RD = 1
+header.QDCOUNT = 1
+question.QNAME = twitter.com.
+question.QTYPE = 1
+question.QCLASS = 1
+answer.NAME = twitter.com.
+answer.TYPE = 1
+answer.CLASS = 1
+answer.TTL = 959
+answer.RDATA = 104.244.42.65
+----------------------------------------------------------------------------
+Preparing DNS query..
+Contacting DNS Server..
+Sending DNS query
+DNS response received (attempt 1 out of 3)
+Processing DNS response..
+----------------------------------------------------------------------------
+header.ID = 18217
+header.QR = 1
+header.OPCODE = 0
+header.RD = 1
+header.QDCOUNT = 1
+question.QNAME = youtube.com.
+question.QTYPE = 1
+question.QCLASS = 1
+answer.NAME = youtube.com.
+answer.TYPE = 1
+answer.CLASS = 1
+answer.TTL = 300
+answer.RDATA = 142.251.16.93
+----------------------------------------------------------------------------
