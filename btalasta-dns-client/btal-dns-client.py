@@ -84,7 +84,7 @@ def send_dns_query_message(server, port, query):
             udp_sock.settimeout(5)
             data = udp_sock.recv(1024)
             print(f"DNS response received (attempt {attempts+1} out of 3)")
-            process_dns_response(query, data)
+            process_dns_response(data)
             break
         except socket.timeout:
             attempts += 1
@@ -94,7 +94,7 @@ def send_dns_query_message(server, port, query):
     udp_sock.close()
 
 
-def process_dns_response(query, response):
+def process_dns_response(response):
     """Function to print the DNS query and response
 
     Args:
@@ -106,7 +106,7 @@ def process_dns_response(query, response):
     dns_response = DNSRecord.parse(response)
     dns_header = dns_response.header
     dns_question = dns_response.questions[0]
-    dns_answer = dns_response.rr
+    dns_answer = dns_response.rr[0]
     print(
         "----------------------------------------------------------------------------"
     )
@@ -120,9 +120,9 @@ def process_dns_response(query, response):
         f"question.QCLASS = {dns_question.qclass}"
     )
     print(
-        f"answer.NAME = {dns_answer[0].rname}\nanswer.TYPE = {dns_answer[0].rtype}\n"
-        f"answer.CLASS = {dns_answer[0].rclass}\nanswer.TTL = {dns_answer[0].ttl}\n"
-        f"answer.RDATA = {dns_answer[0].rdata}"
+        f"answer.NAME = {dns_answer.rname}\nanswer.TYPE = {dns_answer.rtype}\n"
+        f"answer.CLASS = {dns_answer.rclass}\nanswer.TTL = {dns_answer.ttl}\n"
+        f"answer.RDATA = {dns_answer.rdata}"
     )
     print(
         "----------------------------------------------------------------------------"
