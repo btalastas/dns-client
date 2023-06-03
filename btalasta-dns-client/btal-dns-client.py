@@ -136,14 +136,14 @@ def process_dns_response(response):
 # Error checking for command line arguments
 if len(sys.argv) == 1:
     print(
-        "\nPlease include hostname to prepare a DNS query\n\
-Example input: ./btal-dns-client.py gmu.edu"
+        "\nPlease include hostname to prepare a DNS query\n"
+        "Example input: ./btal-dns-client.py gmu.edu"
     )
     exit(0)
 elif len(sys.argv) > 2:
     print(
-        "\nPlease include only 1 hostname to prepare a DNS query.\n\
-Example input: ./btal-dns-client.py gmu.edu"
+        "\nPlease include only 1 hostname to prepare a DNS query.\n"
+        "Example input: ./btal-dns-client.py gmu.edu"
     )
     exit(0)
 
