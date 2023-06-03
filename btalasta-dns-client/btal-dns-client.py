@@ -18,6 +18,7 @@ def create_dns_query(hostname):
     """
     print("Preparing DNS query..")
     # Header
+
     header_row_0 = random.randint(0, 65535)
     # header_row_0 = 1000
 
@@ -25,6 +26,8 @@ def create_dns_query(hostname):
     header_row_2 = 0x01
     header_row_3, header_row_4, header_row_5 = 0x00, 0x00, 0x00
 
+    # H = 2 bytes
+    # represents size of header section of message
     header = struct.pack(
         "!HHHHHH",
         header_row_0,
@@ -36,6 +39,7 @@ def create_dns_query(hostname):
     )
 
     # Question
+
     q_type = 1
     encoded_domain = hostname_to_qname(hostname)
 
@@ -133,13 +137,13 @@ def process_dns_response(response):
 if len(sys.argv) == 1:
     print(
         "\nPlease include hostname to prepare a DNS query\n\
-Example input: btal-dns-client.py gmu.edu"
+Example input: ./btal-dns-client.py gmu.edu"
     )
     exit(0)
 elif len(sys.argv) > 2:
     print(
         "\nPlease include only 1 hostname to prepare a DNS query.\n\
-Example input: btal-dns-client.py gmu.edu"
+Example input: ./btal-dns-client.py gmu.edu"
     )
     exit(0)
 

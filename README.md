@@ -13,5 +13,7 @@ pip install dnslib
 ## ***How to run***
 
 ```
+$ > ./btal-dns-client.py <insert url here>
+
 $ > python3 btal-dns-client.py <insert url here>
 ```
