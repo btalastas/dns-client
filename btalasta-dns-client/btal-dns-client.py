@@ -59,8 +59,9 @@ def hostname_to_qname(hostname):
     hostname_split = hostname.split(".")
     if len(hostname_split) == 1:
         print(
-            "<hostname>.<TLD>\ngmu.edu, google.com, wowhead.com\n"
-            "Example of invalid input: 'gmu', '.gov', 'youtube"
+            "\nError: Invalid input"
+            "\nExample of valid input: gmu.edu, google.com, wowhead.com"
+            "\nExample of invalid input: 'gmu', '.gov', 'youtube'"
         )
         exit(0)
     for part in hostname_split:

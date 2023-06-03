@@ -58,3 +58,23 @@ answer.CLASS = 1
 answer.TTL = 300
 answer.RDATA = 142.251.16.93
 ----------------------------------------------------------------------------
+Preparing DNS query..
+Contacting DNS Server..
+Sending DNS query..
+DNS response received (attempt 1 out of 3)
+Processing DNS response..
+----------------------------------------------------------------------------
+header.ID = 42438
+header.QR = 1
+header.OPCODE = 0
+header.RD = 1
+header.QDCOUNT = 1
+question.QNAME = gmu.edu.
+question.QTYPE = 1
+question.QCLASS = 1
+answer.NAME = gmu.edu.
+answer.TYPE = 1
+answer.CLASS = 1
+answer.TTL = 3600
+answer.RDATA = 129.174.134.28
+----------------------------------------------------------------------------
